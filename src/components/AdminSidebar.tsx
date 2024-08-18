@@ -1,9 +1,9 @@
 import { IconType } from "react-icons";
-import { RiDashboardFill, RiShoppingBag3Fill } from "react-icons/ri";
+import { RiDashboardFill, RiShoppingBag3Fill, RiCoupon3Fill } from "react-icons/ri";
 import { Link, Location, useLocation } from "react-router-dom";
 import { AiFillFileText } from "react-icons/ai";
 import {IoIosPeople} from "react-icons/io"
-import { FaChartBar, FaChartPie, FaChartLine } from "react-icons/fa";
+import { FaChartBar, FaChartPie, FaChartLine, FaStopwatch, FaGamepad } from "react-icons/fa";
 
 const AdminSidebar = () => {
 
@@ -36,21 +36,19 @@ const DivTwo = ({location}: {location: Location}) => (
     <div>
         <h5>Charts</h5>
         <ul>
-            <Li url="/admin/chart/bar" text="Dashboard" Icon={FaChartBar} location={location}/>
-            <Li url="/admin/chart/pie" text="Product" Icon={FaChartPie} location={location}/>
-            <Li url="/admin/chart/customer" text="Customer" Icon={FaChartLine} location={location}/>
-            <Li url="/admin/transaction" text="Transaction" Icon={AiFillFileText} location={location}/>
+            <Li url="/admin/chart/bar" text="Bar" Icon={FaChartBar} location={location}/>
+            <Li url="/admin/chart/pie" text="Pie" Icon={FaChartPie} location={location}/>
+            <Li url="/admin/chart/line" text="Line" Icon={FaChartLine} location={location}/>
         </ul>
     </div>
 )
 const DivThree = ({location}: {location: Location}) => (
     <div>
-        <h5>Charts</h5>
+        <h5>Apps</h5>
         <ul>
-            <Li url="/admin/dashboard" text="Dashboard" Icon={RiDashboardFill} location={location}/>
-            <Li url="/admin/product" text="Product" Icon={RiShoppingBag3Fill} location={location}/>
-            <Li url="/admin/customer" text="Customer" Icon={IoIosPeople} location={location}/>
-            <Li url="/admin/transaction" text="Transaction" Icon={AiFillFileText} location={location}/>
+            <Li url="/admin/app/stopwatch" text="Stopwatch" Icon={FaStopwatch} location={location}/>
+            <Li url="/admin/app/coupon" text="Coupon" Icon={RiCoupon3Fill} location={location}/>
+            <Li url="/admin/app/toss" text="Toss" Icon={FaGamepad} location={location}/>
         </ul>
     </div>
 )
