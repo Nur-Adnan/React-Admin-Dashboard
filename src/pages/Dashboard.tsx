@@ -29,6 +29,13 @@ const dashboard = () => {
                 </div>
                 <div className="dashboard-categories">
                     <h2>Inventory</h2>
+                    <div>
+                        <CategoryItem
+                        heading="Laptops"
+                        value={70}
+                        color="hsl(169, 100%, 50%)"
+                        />
+                    </div>
                 </div>
             </section>
         </main>
@@ -45,7 +52,7 @@ interface WidgetItemProps {
     amount?: boolean;
 }
 
-const WidgetItem = ({heading, value, percent, color, amount = false} : WidgetItemProps ) =>
+const WidgetItem = ({heading, value, percent, color, amount = false} : WidgetItemProps ) =>(
     <article className="widget">
         <div className="widget-info">
             <p>{heading}</p>
@@ -66,5 +73,24 @@ const WidgetItem = ({heading, value, percent, color, amount = false} : WidgetIte
             <span style={{color}} > {percent} % </span>
         </div>
     </article>
+);
 
+interface CategoryItemProps{
+    color: string,
+    value: number,
+    heading: string;
+}
+
+const CategoryItem = ({color, value, heading} : CategoryItemProps) => (
+    <div className="category-item">
+        <h5>{heading}</h5>
+        <div>
+            <div style={{backgroundColor: color,
+                width: `${value}%`,
+            }}>
+            </div>
+        </div>
+        <span>{value}%</span>
+    </div>
+)
 export default dashboard;
