@@ -7,7 +7,7 @@ const userImg = "";
 
 const dashboard = () => {
   return (
-    <div className="adminContainer">
+    <div className="admin-container">
         {/* Siderbar */}
         <AdminSidebar/>
         <main className="dashboard">
@@ -17,10 +17,19 @@ const dashboard = () => {
                 <FaRegBell/>
                 <img src={userImg} alt="" />
             </div>
-            <section className="widgetcontainer">
+            <section className="widget-container">
                 <WidgetItem percent={40} amount={true} value={34000} heading="Revenue" color="rgb(0,155,255)"/>
-                <WidgetItem percent={40} amount={true} value={34000} heading="Revenue" color="rgb(0,155,255)"/>
-                <WidgetItem percent={40} amount={true} value={34000} heading="Revenue" color="rgb(0,155,255)"/>
+                <WidgetItem percent={-14} value={400} heading="Users" color="rgb(0,198,202)"/>
+                <WidgetItem percent={80}  value={23000} heading="Transactions" color="rgb(255,196,0)"/>
+                <WidgetItem percent={30}  value={1000} heading="Products" color="rgb(76, 0, 255)"/>
+            </section>
+            <section className="graph-container">
+                <div className="revenue-chart">
+                    <h2>Revenue & Transaction</h2>
+                </div>
+                <div className="dashboard-categories">
+                    <h2>Inventory</h2>
+                </div>
             </section>
         </main>
         {/* Main */}
@@ -36,9 +45,9 @@ interface WidgetItemProps {
     amount?: boolean;
 }
 
-const WidgetItem = ({heading, value, percent, color, amount} : WidgetItemProps ) =>
+const WidgetItem = ({heading, value, percent, color, amount = false} : WidgetItemProps ) =>
     <article className="widget">
-        <div className="widgetInfo">
+        <div className="widget-info">
             <p>{heading}</p>
             <h4>{amount ? `$${value}` : value}</h4>
             {
@@ -47,12 +56,14 @@ const WidgetItem = ({heading, value, percent, color, amount} : WidgetItemProps )
                 `</span>
             }
         </div>
-        <div className="widgetCircle" style={{
+        <div className="widget-circle"
+        style={{
             background: `conic-gradient(
-            $(color) 320deg, rgb(255, 255, 255) 0
-            )`
+            ${color} ${(Math.abs(percent) / 100) * 360}deg,
+            rgb(255, 255, 255) 0
+          )`,
         }}>
-            <span color={color} > {percent} % </span>
+            <span style={{color}} > {percent} % </span>
         </div>
     </article>
 
