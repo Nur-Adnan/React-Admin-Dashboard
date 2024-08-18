@@ -3,9 +3,9 @@ import { lazy, Suspense } from "react"
 import Loader from "./components/Loader";
 
 const DashBoard = lazy(() => import ("./pages/Dashboard"));
-const Products = lazy(() => import ("./pages/Products"));
+const Product = lazy(() => import ("./pages/Products"));
 const  Transaction = lazy(()=> import ("./pages/Transaction"));
-const Customers = lazy(() => import ("./pages/Customers"));
+const Customer = lazy(() => import ("./pages/Customers"));
 
 const App = () => {
   return (
@@ -13,9 +13,9 @@ const App = () => {
         <Suspense fallback = {<Loader/>}>
         <Routes>
             <Route path="/admin/dashboard" element={<DashBoard/>} />
-            <Route path="/admin/products" element={<Products/>} />
+            <Route path="/admin/product" element={<Product/>} />
             <Route path="/admin/transaction" element={<Transaction/>} />
-            <Route path="/admin/customers" element={<Customers/>} />
+            <Route path="/admin/customer" element={<Customer/>} />
             {/* Charts */}
             {/* Apps */}
         </Routes>

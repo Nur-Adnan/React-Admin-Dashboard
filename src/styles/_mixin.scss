@@ -1,7 +1,7 @@
 @mixin heading($spacing: 3px, $weight: 300, $case: uppercase){
     letter-spacing: $spacing;
     font-weight: $weight;
-    text-decoration: $case;
+    text-transform: $case;
 }
 @mixin flex($dir: row, $justifyContent: center, $alignItems: center, $gap: 1rem){
     display: flex;
