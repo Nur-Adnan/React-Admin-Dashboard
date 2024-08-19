@@ -2,7 +2,9 @@ import { BsSearch } from "react-icons/bs"
 import AdminSidebar from "../components/AdminSidebar"
 import { FaRegBell } from "react-icons/fa"
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
-
+import data from "../assets/data.json";
+import { BarChart } from "../components/Charts";
+import { BiMaleFemale } from "react-icons/bi";
 const userImg = "";
 
 const dashboard = () => {
@@ -26,17 +28,31 @@ const dashboard = () => {
             <section className="graph-container">
                 <div className="revenue-chart">
                     <h2>Revenue & Transaction</h2>
+                    <BarChart data_1={[300,144,433,655,237,755,190]} data_2={[200,444,343,556,778,455,990]} title_1="Revenue" title_2="Transaction" bgColor_1="rgb(0, 155, 255)" bgColor_2="rgba(53, 162, 235, 0.8)"/>
                 </div>
                 <div className="dashboard-categories">
                     <h2>Inventory</h2>
                     <div>
-                        <CategoryItem
-                        heading="Laptops"
-                        value={70}
-                        color="hsl(169, 100%, 50%)"
-                        />
+                        {
+                            data.categories.map((i) => (
+                                <CategoryItem
+                                key={i.heading}
+                                heading={i.heading}
+                                value={i.value}
+                                color={`hsl(${i.value * 4}, ${i.value}%, 50%)`}
+                                />
+                            ) )
+                        }
                     </div>
                 </div>
+            </section>
+            <section className="transaction-container">
+                <div className="gender-chart">
+                    <h2>Gender Ratio</h2>
+                    {/* Chart */}
+                    <p><BiMaleFemale/></p>
+                </div>
+                {/* Table */}
             </section>
         </main>
         {/* Main */}
